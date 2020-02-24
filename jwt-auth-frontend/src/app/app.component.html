@@ -1,0 +1,38 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">i-Recruiter</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/home" routerLink="/home" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a href="/register" routerLink="/register" class="nav-link">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a href="/profile" routerLink="/profile" class="nav-link">Profile</a>
+      </li>
+      <!--check if authenticated is null-->
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a href="/login" routerLink="/login" class="nav-link">Login</a>
+      </li>
+      <!--check if authenticated is not null and role is admin-->
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/board-admin" routerLink="board-admin" class="nav-link">Admin Page</a>
+      </li>
+      <!--check if authenticated is not null and role is staff-->
+      <li class="nav-item" *ngIf="showStaffBoard">
+        <a href="/board-staff" routerLink="board-staff" class="nav-link">Staff Page</a>
+      </li>
+      <!--check if authenticated is not null and role is manager-->
+      <li class="nav-item" *ngIf="showManagerBoard">
+        <a href="/board-manager" routerLink="board-manager" class="nav-link">Manager Page</a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard || showManagerBoard">
+        <a href="/category" routerLink="category" class="nav-link">Category</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

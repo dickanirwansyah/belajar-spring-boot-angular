@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="container-fluid">
+        <div class="page-header">
+            <br/>
+            <h3 class="alert alert-info">Category</h3>
+        </div>
+        <div align="left">
+            <button class="btn btn-primary">
+                New Category
+            </button>
+            <br/>
+            <br/>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categorys | async; let i = index">
+                    <td>{{ i + 1}}</td>
+                    <td>{{ category.id}}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.createdAt }}</td>
+                    <td>{{ category.updatedAt }}</td>
+                    <td>
+                        <button class="btn btn-primary">Update</button>&nbsp;
+                        <button class="btn btn-danger">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>NO</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
